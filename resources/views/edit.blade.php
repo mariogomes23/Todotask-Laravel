@@ -2,85 +2,92 @@
 
 @section('content')
 
-
-
- <!-- Content -->
- <div class="content">
-            <!-- Animated -->
+<div class="content">
             <div class="animated fadeIn">
 
 
-                <div class="clearfix"></div>
-                <!-- Orders -->
-                <div class="orders">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="box-title">Tasks </h4>
+                <div class="row">
+
+
+
+                    <div class="col-lg-10">
+                        <div class="card">
+                            <div class="card-header">Edit Tasks</div>
+                            <div class="card-body card-block">
+                                <form action="{{ route("update",$tasks->id) }}" method="POST">
+
+                                    @csrf
+                                    @method("PUT")
+
+                                    <input type="hidden" name="id" value="">
+                                <div class="form-group"><label for="title" class=" form-control-label">Title</label>
+                                    <input type="text"  name="title" value="{{ old("title") }}" placeholder="Enter task title" class="form-control">
+
+                                    @error("title")
+                                    <div class="alert alert-danger mt-2" role="alert">
+                                        {{ $message }}
+                                     </div
+
+                                    @enderror
+
                                 </div>
-                                <div class="card-body--">
-                                    <div class="table-stats order-table ov-h">
-                                        <table class="table ">
-                                            <thead>
-                                                <tr>
-                                                    <th class="serial">#</th>
+                                <div class="form-group"><label for="description" class=" form-control-label">Description</label>
+                                    <input type="text"  name="description" value="{{ old("description") }}" placeholder="Enter description for task"
+                                     class="form-control">
 
-                                                    <th>Title</th>
-                                                    <th>Description</th>
-                                                    <th>Progress</th>
-                                                    <th>Status</th>
-                                                    <th>Edit</th>
-                                                    <th>Delete</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
+                                     @error("description")
+                                     <div class="alert alert-danger mt-2" role="alert">
+                                         {{ $message }}
+                                      </div
 
-                                                <tr>
-                                                    <td class="serial">1</td>
+                                     @enderror
+                                    </div>
 
-                                                    <td>  <span class="name">titulo</span> </td>
-                                                    <td> <span class="product">desc</span> </td>
-                                                    <td><span class="count">pogress</span></td>
-                                                    <td>
+                                  <div class="form-group">
+                                        <div class="col col-md-3"><label for="select" class=" form-control-label">Status</label></div>
+                                        <div class="col-12 col-md-9">
+                                            <select  id="select" class="form-control" name="status">
 
-                                                        <span class="badge badge-pending" style="background:blue">st</span>
+                                                @if ($tasks->status == "In Pogress")
 
-                                                        <span class="badge badge-pending" style="background:brown">st</span>
+                                                <option value="In progress" selected>In progress</option>
+                                                <option value="complete" >Completed</option>
 
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge badge-complete"><a style="color:white" href="#"> Edit </a></span>
-                                                    </td>
+                                                @else
 
-                                                    <td>
-                                                        <span style="background:red" class="badge badge-complete"><a style="color:white" onclick="return confirm('are you sure?')" href="#"> Delete </a></span>
-                                                    </td>
+                                                <option value="complete" selected>Completed</option>
+                                                <option value="In progress">In progress</option>
 
-                                                </tr>
+
+                                                @endif
+
+                                            </select>
+                                        </div>
+                                    </div>
 
 
 
-                                            </tbody>
-                                        </table>
-                                    </div> <!-- /.table-stats -->
-                                </div>
-                            </div> <!-- /.card -->
-                        </div>  <!-- /.col-lg-8 -->
+                                <div class="form-group"><label for="progress" class=" form-control-label">Progress</label>
+                                    <input type="number" id="progress" name="progress" value="{{ old("progress") }}" placeholder="Progress %" class="form-control"></div>
 
-                </div>
-                <!-- /.orders -->
+                                  <div class="form-group">
+                                      <button class="btn btn-primary" type="submit">edit</button>
+                                  </div>
+
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
 
 
 
 
-            </div>
-            <!-- .animated -->
-        </div>
-        <!-- /.content -->
-        <div class="clearfix"></div>
 
+        </div><!-- .animated -->
+    </div><!-- .content -->
 
+    <div class="clearfix"></div>
 
 
 

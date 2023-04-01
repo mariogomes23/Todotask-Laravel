@@ -73,31 +73,18 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                        <a href="{{ route("index") }}"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
                     <li class="menu-title">Options</li><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Management</a>
                         <ul class="sub-menu children dropdown-menu">
-                              <li><i class="fa fa-puzzle-piece"></i><a href="#">Add new task</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="#">Edit tasks</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Information</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="#">Completed Tasks</a></li>
-                            <li><i class="fa fa-table"></i><a href="#">In Progress Tasks</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                             <i class="menu-icon fa fa-th"></i>About</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">System info</a></li>
+                              <li><i class="fa fa-puzzle-piece"></i><a href="{{ route("create") }}">Add new task</a></li>
 
                         </ul>
                     </li>
+
+
 
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -111,7 +98,7 @@
             <div class="top-left">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="./"><h3>Todo Task</h3></a>
-                    <a class="navbar-brand hidden" href="./"><img src="images/logo.png" alt="Logo"></a>
+                    <a class="navbar-brand hidden" href="{{ route("index") }}"><img src="images/logo.png" alt="Logo"></a>
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
             </div>
